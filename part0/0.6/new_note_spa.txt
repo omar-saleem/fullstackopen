@@ -1,0 +1,20 @@
+note over browser:
+form default behaviour is overriden in
+JavaScript to first manipulate the DOM 
+and append the new note to the end of
+the list
+end note
+
+note over browser:
+a single POST request is sent to
+the server, with the payload being 
+in JSON format, containing note
+content and date
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: {"message":"note created"}
+
+note over browser:
+no additional GET request is made
+end note
