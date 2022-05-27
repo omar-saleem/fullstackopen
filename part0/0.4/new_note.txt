@@ -1,0 +1,40 @@
+note over browser:
+user writes some text into the input
+field and hits the submit button
+end note
+
+note over browser:
+browser looks at form attributes and
+creates a POST request according to form
+method and sends it to the URL specified
+in the form action
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server-->browser: HTML-code (response status code 302, redirection)
+
+note over browser:
+browser gets the form data, adds it
+to the JSON file, and sends a redirection
+response back to the browser
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: data.json
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
